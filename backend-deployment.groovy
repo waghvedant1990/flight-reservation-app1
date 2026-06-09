@@ -12,12 +12,17 @@ pipeline{
             }
 
         }
-        stage('build'){
-            steps{
-                sh '''
-                    cd FlightReservationApplication
-                    mvn clean package 
-                '''
+        stage('build') {
+            steps {
+                 sh '''
+                 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+                 export PATH=$JAVA_HOME/bin:$PATH
+                 java -version
+                 javac -version
+                 cd FlightReservationApplication
+                 mvn clean package
+                 '''
+                }
             }
         }
         stage('SonarQube Analysis'){
