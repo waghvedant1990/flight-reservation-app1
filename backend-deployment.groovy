@@ -1,7 +1,7 @@
 pipeline{
     agent any 
     environment {
-        REPONAME = 'mayurwagh'
+        REPONAME = 'vedantwagh'
         IMAGE_NAME = 'flight-reservation-cdec-b50'
         JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64'
         PATH = "${JAVA_HOME}/bin:${env.PATH}"
