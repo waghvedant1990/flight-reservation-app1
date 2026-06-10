@@ -3,6 +3,8 @@ pipeline{
     environment {
         REPONAME = 'mayurwagh'
         IMAGE_NAME = 'flight-reservation-cdec-b50'
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64'
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
     }
 
     stages{
@@ -15,6 +17,13 @@ pipeline{
         stage('build'){
             steps{
                 sh '''
+                    export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+                    export PATH=$JAVA_HOME/bin:$PATH
+
+                    java -version
+                    javac -version
+                    mvn -version
+
                     cd FlightReservationApplication
                     mvn clean package -DskipTests
                 '''
