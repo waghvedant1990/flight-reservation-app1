@@ -10,7 +10,7 @@ pipeline{
     stages{
         stage('checkout'){
             steps{
-                 git branch: 'main', url: 'https://github.com/mayurmwagh/flight-reservation-app.git' 
+                 git branch: 'main', url: 'https://github.com/waghvedant1990/flight-reservation-app1.git' 
             }
 
         }
