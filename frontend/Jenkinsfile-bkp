@@ -3,8 +3,8 @@ pipeline {
     
     environment {
         AWS_CREDENTIALS = credentials('aws-cred')
-        S3_BUCKET = 'cbz-frontend-dev-buxxx'
-        AWS_REGION = 'eu-west-2'
+        S3_BUCKET = 'cbz-frontend-project-bux-vedant-2026'
+        AWS_REGION = 'us-east-1'
     //    NODE_VERSION = '18.x'
     }
     
@@ -35,7 +35,7 @@ pipeline {
         
         stage('S3 Deploy') {
             steps {
-                withAWS(credentials: 'aws-cred', region: 'eu-west-2') {
+                withAWS(credentials: 'aws-cred', region: 'us-east-1') {
                     sh '''
                      cd frontend
                         aws s3 sync dist/ s3://${S3_BUCKET} --delete
