@@ -17,15 +17,16 @@ pipeline{
         stage('build'){
             steps{
                 sh '''
-                    export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-                    export PATH=$JAVA_HOME/bin:$PATH
+                     /usr/lib/jvm/java-17-openjdk-amd64/bin/java -version
+                     /usr/lib/jvm/java-17-openjdk-amd64/bin/javac -version
 
-                    java -version
-                    javac -version
-                    mvn -version
+                     export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+                     export PATH=/usr/lib/jvm/java-17-openjdk-amd64/bin:$PATH
 
-                    cd FlightReservationApplication
-                    mvn clean package -DskipTests
+                     mvn -version
+
+                     cd FlightReservationApplication
+                     mvn clean package -DskipTests
                 '''
             }
         }
