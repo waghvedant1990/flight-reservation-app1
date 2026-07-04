@@ -32,7 +32,7 @@ pipeline{
         }
         stage('SonarQube Analysis'){
             steps{
-                withSonarQubeEnv(credentialsId: 'sonar-cred', installationName: 'sonar') {
+                withSonarQubeEnv(credentialsId: 'sonar-sec', installationName: 'sonar-secret') {
                 sh '''
                     export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
                     export PATH=$JAVA_HOME/bin:$PATH
